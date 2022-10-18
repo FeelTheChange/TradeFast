@@ -1,0 +1,15 @@
+<mvc:View controllerName="tradefast.controller.TradeView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+        <Label text="Trading Symbol"></Label>
+        <Input value="{AppConfig>/trading_symbol}"></Input>
+        <Label text="Quantity"></Label>
+        <Input value="{AppConfig>/Quantity}"></Input>
+         <Label text="Profit"></Label>
+        <Input value="{AppConfig>/profit}"></Input>
+        <Button text="Trade" press="OnTrade"></Button>
+        </content>
+    </Page>
+</mvc:View>
