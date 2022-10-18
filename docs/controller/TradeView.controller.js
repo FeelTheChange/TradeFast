@@ -13,6 +13,7 @@ sap.ui.define([
                 var AppConfig = {
                     "profit": "",
                     "Quantity":"",
+                    "EnableTrade":false,
                     "trading_symbol":"BANKNIFTY22O2040700CE",
                     "AuthToken": "enctoken KFB4MBaO1hx/dwuOI/hqSoTo+1Mtz+ospgrbLVEzF95WpqP/T6oHGgM3hpkVXwxYoXPi0hckHl7BHbKns5M+sHbbo1cKW+2M52gs7b/bV05CBfLTwIBdug=="
                 }
