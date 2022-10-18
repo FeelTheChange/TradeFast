@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content >
-            <VBox class="sapUiSmallMargin>
+            <VBox class="sapUiSmallMargin">
          <Label text="Auth Token"></Label>
         <Input value="{AppConfig>/AuthToken}"></Input>
         <Label text="Trading Symbol"></Label>
