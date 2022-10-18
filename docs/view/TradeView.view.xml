@@ -12,7 +12,8 @@
         <Input value="{AppConfig>/Quantity}"></Input>
          <Label text="Profit"></Label>
         <Input value="{AppConfig>/profit}"></Input>
-        <Button text="Trade" type="Emphasized" press="OnTrade"></Button>
+            <CheckBox text="Enable" selected="{AppConfig>/EnableTrade}"/>
+        <Button text="Trade" type="Emphasized" enable="{AppConfig>/EnableTrade}" press="OnTrade"></Button>
             </VBox>
         </content>
     </Page>
