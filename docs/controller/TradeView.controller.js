@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/format/DateFormat"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel,DateFormat) {
         "use strict";
 
         return Controller.extend("tradefast.controller.TradeView", {
@@ -20,10 +21,32 @@ sap.ui.define([
                 var oModel = new JSONModel(AppConfig);
                 this.getView().setModel(oModel, "AppConfig");
 
+                var TradeStatus = [];
+                
+
+                var oModel = new JSONModel(TradeStatus);
+                this.getView().setModel(oModel, "TradeStatus");
+
+
+            },
+            OnRefresh:function(){
+                location.reload();
+            },
+            PushTradeData:function(TradeObj){
 
             },
             OnTrade: function () {
+                var oDateFormat = DateFormat.getDateTimeInstance();
+                var TradeObj = {
+                    "Time":"",
+                    "BUY_AMT":"",
+                    "SELL_AMT":""
+                };
                 var AppConfigData = this.getView().getModel("AppConfig").getData();
+                var TradeStatusData = this.getView().getModel("TradeStatus").getData();
+                TradeStatusData.push(TradeObj);
+                this.getView().getModel("TradeStatus").setData(TradeStatusData);
+                TradeObj.Time = oDateFormat.format(new Date());
                 var BuyFlag = true;
                 var OrderCheckFlag = true;
                 var SellFlag = true;
@@ -65,15 +88,18 @@ sap.ui.define([
                     if (this.responseText != "") {
                         var order_id = JSON.parse(this.response).data.order_id;
                         if (order_id != "") {
-                           
                             var xhttp2 = new XMLHttpRequest();
                             xhttp2.onreadystatechange = function () {
                                 if (this.responseText != "") {
                                     var order_data = JSON.parse(this.response).data;
                                     var order_status = order_data[order_data.length -1].status;
                                     if(order_status == "COMPLETE"){
+
+                                
                                         var av_price = order_data[order_data.length -1].average_price;
                                         var sell_price = (parseFloat(AppConfigData.profit) + parseFloat(av_price)).toFixed(1);
+                                        
+                                        TradeObj.BUY_AMT =  av_price;
 
                                         var payload2 = {
                                             variety: "regular",
@@ -110,7 +136,7 @@ sap.ui.define([
 
                                         var xhttp3 = new XMLHttpRequest();
                                         xhttp3.onreadystatechange = function () {
-                                         
+                                            TradeObj.SELL_AMT =  sell_price;
                                         };
                                         xhttp3.open("POST", "https://kite.zerodha.com/oms/orders/regular", true);
                                         xhttp3.setRequestHeader("Authorization", AppConfigData.AuthToken);

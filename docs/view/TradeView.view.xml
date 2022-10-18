@@ -1,19 +1,43 @@
-<mvc:View controllerName="tradefast.controller.TradeView"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+<mvc:View controllerName="tradefast.controller.TradeView" xmlns:ui="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content >
+        <content>
             <VBox class="sapUiSmallMargin">
-         <Label text="Auth Token"></Label>
-        <Input value="{AppConfig>/AuthToken}"></Input>
-        <Label text="Trading Symbol"></Label>
-        <Input value="{AppConfig>/trading_symbol}"></Input>
-        <Label text="Quantity"></Label>
-        <Input value="{AppConfig>/Quantity}"></Input>
-         <Label text="Profit"></Label>
-        <Input value="{AppConfig>/profit}"></Input>
-            <CheckBox text="Enable" selected="{AppConfig>/EnableTrade}"/>
-        <Button text="Trade" type="Emphasized" enabled="{AppConfig>/EnableTrade}" press="OnTrade"></Button>
+                <Label text="Auth Token" />
+                <Input value="{AppConfig>/AuthToken}" />
+                <Label text="Trading Symbol" />
+                <Input value="{AppConfig>/trading_symbol}" />
+                <Label text="Quantity" />
+                <Input value="{AppConfig>/Quantity}" />
+                <Label text="Profit" />
+                <Input value="{AppConfig>/profit}" />
+                <HBox class="sapUiSmallMargin">
+                    <CheckBox class="sapUiMediumMarginEnd" text="Enable" selected="{AppConfig>/EnableTrade}" />
+                    <Button class="sapUiMediumMarginEnd" text="Refresh" press="OnRefresh" />
+                    <Button text="Trade" type="Emphasized" enabled="{AppConfig>/EnableTrade}" press="OnTrade" />
+                </HBox>
+
+                <ui:Table rows="{TradeStatus>/}" visibleRowCount="7" ariaLabelledBy="Status">
+                    <ui:columns>
+                        <ui:Column width="11rem">
+                            <Label text="Time" />
+                            <ui:template>
+                                <Text text="{TradeStatus>Time}" />
+                            </ui:template>
+                        </ui:Column>
+                        <ui:Column width="11rem">
+                            <Label text="BUY Amount" />
+                            <ui:template>
+                                <Text text="{TradeStatus>BUY_AMT}" />
+                            </ui:template>
+                        </ui:Column>
+                        <ui:Column width="11rem">
+                            <Label text="Sell Amount" />
+                            <ui:template>
+                                <Text text="{TradeStatus>SELL_AMT}" />
+                            </ui:template>
+                        </ui:Column>
+                    </ui:columns>
+                </ui:Table>
             </VBox>
         </content>
     </Page>
