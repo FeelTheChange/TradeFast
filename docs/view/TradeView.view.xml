@@ -1,5 +1,5 @@
 <mvc:View controllerName="tradefast.controller.TradeView" xmlns:ui="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="TradeFast">
         <content>
             <VBox class="sapUiSmallMargin">
                 <Label text="Auth Token" />
