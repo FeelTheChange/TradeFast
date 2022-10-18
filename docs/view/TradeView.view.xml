@@ -18,19 +18,19 @@
 
                 <ui:Table rows="{TradeStatus>/}" visibleRowCount="7" ariaLabelledBy="Status">
                     <ui:columns>
-                        <ui:Column width="5rem">
+                        <ui:Column width="7rem">
                             <Label text="Time" />
                             <ui:template>
                                 <Text text="{TradeStatus>Time}" />
                             </ui:template>
                         </ui:Column>
-                        <ui:Column width="5rem">
+                        <ui:Column width="7rem">
                             <Label text="BUY Amount" />
                             <ui:template>
                                 <Text text="{TradeStatus>BUY_AMT}" />
                             </ui:template>
                         </ui:Column>
-                        <ui:Column width="5rem">
+                        <ui:Column width="7rem">
                             <Label text="Sell Amount" />
                             <ui:template>
                                 <Text text="{TradeStatus>SELL_AMT}" />
