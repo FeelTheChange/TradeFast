@@ -3,6 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content >
+            <VBox class="sapUiSmallMargin>
          <Label text="Auth Token"></Label>
         <Input value="{AppConfig>/AuthToken}"></Input>
         <Label text="Trading Symbol"></Label>
@@ -11,7 +12,8 @@
         <Input value="{AppConfig>/Quantity}"></Input>
          <Label text="Profit"></Label>
         <Input value="{AppConfig>/profit}"></Input>
-        <Button text="Trade" press="OnTrade"></Button>
+        <Button text="Trade" type="Emphasized" press="OnTrade"></Button>
+            </VBox>
         </content>
     </Page>
 </mvc:View>
