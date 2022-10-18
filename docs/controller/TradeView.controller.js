@@ -72,7 +72,7 @@ sap.ui.define([
                                     var order_status = order_data[order_data.length -1].status;
                                     if(order_status == "COMPLETE"){
                                         var av_price = order_data[order_data.length -1].average_price;
-                                        var sell_price = (parseFloat(AppConfigData.profit) + parseFloat(av_price)).toString();
+                                        var sell_price = (parseFloat(AppConfigData.profit) + parseFloat(av_price)).toFixed(1);
 
                                         var payload2 = {
                                             variety: "regular",
