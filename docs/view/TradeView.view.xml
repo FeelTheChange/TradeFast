@@ -3,6 +3,8 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content >
+         <Label text="Auth Token"></Label>
+        <Input value="{AppConfig>/AuthToken}"></Input>
         <Label text="Trading Symbol"></Label>
         <Input value="{AppConfig>/trading_symbol}"></Input>
         <Label text="Quantity"></Label>
