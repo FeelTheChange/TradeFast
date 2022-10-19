@@ -16,7 +16,7 @@ sap.ui.define([
                     "Quantity":"",
                     "EnableTrade":false,
                     "trading_symbol":"BANKNIFTY22O2040700CE",
-                    "AuthToken": "enctoken KFB4MBaO1hx/dwuOI/hqSoTo+1Mtz+ospgrbLVEzF95WpqP/T6oHGgM3hpkVXwxYoXPi0hckHl7BHbKns5M+sHbbo1cKW+2M52gs7b/bV05CBfLTwIBdug=="
+                    "AuthToken": "enctoken BLvXLe9Bc9Sj/sbszkSVW4QG6VRsY5EIVYzfDwfZksy8DFuHteQWDsXGD4mBE/0fod81M33kmPd1i9ui4FLc2Xj3Qs+jcSE7oYdx7u7ewt337zOI+r+jEw=="
                 }
                 var oModel = new JSONModel(AppConfig);
                 this.getView().setModel(oModel, "AppConfig");
