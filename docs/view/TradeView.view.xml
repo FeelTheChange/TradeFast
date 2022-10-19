@@ -11,9 +11,11 @@
                 <Label text="Profit" />
                 <Input value="{AppConfig>/profit}" />
                 <HBox class="sapUiSmallMargin">
-                    <CheckBox class="sapUiMediumMarginEnd" text="Enable" selected="{AppConfig>/EnableTrade}" />
-                    <Button class="sapUiMediumMarginEnd" text="Refresh" press="OnRefresh" />
-                    <Button text="Trade" type="Emphasized" enabled="{AppConfig>/EnableTrade}" press="OnTrade" />
+                    <CheckBox class="sapUiSmallMargin" text="Enable" selected="{AppConfig>/EnableTrade}" />
+                    <Button class="sapUiSmallMargin" text="Refresh" press="OnRefresh" />
+                    <Button class="sapUiSmallMargin" text="Trade" type="Emphasized" enabled="{AppConfig>/EnableTrade}" press="OnTrade" />
+                    <Button class="sapUiSmallMargin" text="BUY" type="Success"/>
+                    <Button text="SELL" type="Error"/>
                 </HBox>
 
                 <ui:Table rows="{TradeStatus>/}" visibleRowCount="7" ariaLabelledBy="Status">
