@@ -84,7 +84,12 @@ sap.ui.define([
                     "trailing_stoploss=" + payload.trailing_stoploss + "&" +
                     "user_id=" + payload.user_id;
                 var xhttp = new XMLHttpRequest();
+                var that = this;
                 xhttp.onreadystatechange = function () {
+                    var AppConfigData = that.getView().getModel("AppConfig").getData();
+                    AppConfigData.ErrorText = this.responseText;
+                    that.getView().getModel("AppConfig").setData(AppConfigData);
+                    
                     if (this.responseText != "") {
                         var order_id = JSON.parse(this.response).data.order_id;
                         if (order_id != "") {
