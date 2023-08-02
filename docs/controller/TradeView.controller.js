@@ -156,6 +156,12 @@ sap.ui.define([
                         }
                     }
                 };
+                xhttp.addEventListener("error",function(oEvent){
+                    var AppConfigData = this.getView().getModel("AppConfig").getData();
+                    AppConfigData.ErrorText = JSON.stringify(oEvent);
+                    this.getView().getModel("AppConfig").setData(AppConfigData);
+                    
+                });
                 xhttp.open("POST", "https://kite.zerodha.com/oms/orders/regular", true);
                 xhttp.setRequestHeader("Authorization", AppConfigData.AuthToken);
                 xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
