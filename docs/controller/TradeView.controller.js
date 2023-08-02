@@ -156,10 +156,11 @@ sap.ui.define([
                         }
                     }
                 };
+                var that = this;
                 xhttp.addEventListener("error",function(oEvent){
-                    var AppConfigData = this.getView().getModel("AppConfig").getData();
+                    var AppConfigData = that.getView().getModel("AppConfig").getData();
                     AppConfigData.ErrorText = JSON.stringify(oEvent);
-                    this.getView().getModel("AppConfig").setData(AppConfigData);
+                    that.getView().getModel("AppConfig").setData(AppConfigData);
                     
                 });
                 xhttp.open("POST", "https://kite.zerodha.com/oms/orders/regular", true);
